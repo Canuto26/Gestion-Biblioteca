@@ -6,10 +6,36 @@ python -m venv venv
 ## Activar entorno virtual (Windows)
 venv\Scripts\activate
 
-## Instalar dependencias
+## Instalar requerimientos dependencias
 pip install -r requirements.txt
 
 ## Para desarrollo
 pip install -r requirements/dev.txt
 
 
+
+# Instalacion de dependencias
+
+## Django
+pip install Django
+
+## Django Rest framework
+pip install djangorestframework
+
+## Headers Cors
+pip install django-cors-headers
+
+## Adaptador PostgreSQL
+pip install psycopg2-binary
+
+## Sistema de filtrado
+pip install django-filter
+
+## Documentación automática (Swagger)  _PENDIENTE_
+pip install drf-yasg
+
+## Manejo de imágenes
+pip install Pillow
+
+## Variables de entorno _PENDIENTE_
+pip install python-decouple
