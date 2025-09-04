@@ -75,3 +75,34 @@
 
 * RNF-009: Índices en campos de búsqueda frecuente
 
+
+
+
+
+# Urls para testeo 
+Una vez ejecutado el servidor (por defecto en http://127.0.0.1:8000/):
+
+Autores CRUD:
+GET http://127.0.0.1:8000/api/autores/ - Listar autores
+
+POST http://127.0.0.1:8000/api/autores/ - Crear autor
+
+GET http://127.0.0.1:8000/api/autores/1/ - Obtener autor específico
+
+PUT http://127.0.0.1:8000/api/autores/1/ - Actualizar autor
+
+DELETE http://127.0.0.1:8000/api/autores/1/ - Eliminar autor
+
+Filtros:
+http://127.0.0.1:8000/api/autores/?search=nombre - Búsqueda
+
+http://127.0.0.1:8000/api/autores/?nacionalidad=España - Filtrar por nacionalidad
+
+http://127.0.0.1:8000/api/autores/?ordering=nombre - Ordenar
+
+Documentación:
+http://127.0.0.1:8000/swagger/ - Swagger UI
+
+http://127.0.0.1:8000/redoc/ - ReDoc
+
+http://127.0.0.1:8000/admin/ - Admin Django (si creaste superusuario)
