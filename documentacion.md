@@ -1,108 +1,109 @@
 # Requerimientos Funcionales
 1. Gestión de Autores
-* RF-001: Crear, leer, actualizar y eliminar autores
+* RF01: Crear nuevo autor (nombre, nacionalidad, fecha de nacimiento, biografía)
 
-* RF-002: Cada autor debe tener: id, nombre, fecha de nacimiento, nacionalidad, biografía (opcional)
+* RF02: Listar todos los autores con paginación
 
-* RF-003: Búsqueda de autores por nombre o nacionalidad
+* RF03: Ver detalles de un autor específico
+
+* RF04: Actualizar información de un autor existente
+
+* RF05: Eliminar un autor (solo si no tiene libros asociados)
+
+* RF06: Buscar autores por nombre o nacionalidad
+
 
 2. Gestión de Editoriales
-* RF-004: Crear, leer, actualizar y eliminar editoriales
+* RF07: Crear nueva editorial (nombre, dirección, teléfono, email)
 
-* RF-005: Cada editorial debe tener: id, nombre, dirección, sitio web (opcional)
+* RF08: Listar todas las editoriales
 
-* RF-006: Búsqueda de editoriales por nombre
+* RF09: Ver detalles de una editorial específica
+
+* RF10: Actualizar información de una editorial
+
+* RF11: Eliminar una editorial (solo si no tiene libros asociados)
+
+* RF12: Buscar editoriales por nombre
+
 
 3. Gestión de Libros
-* RF-007: Crear, leer, actualizar y eliminar libros
+* RF13: Crear nuevo libro (título, autor, editorial, ISBN, género, año de publicación, cantidad disponible)
 
-* RF-008: Cada libro debe tener: id, título, autor(es), editorial, ISBN, fecha de publicación, género, cantidad disponible
+* RF14: Listar todos los libros con paginación
 
-* RF-009: Relación muchos-a-muchos con autores (un libro puede tener múltiples autores)
+* RF15: Ver detalles de un libro específico
 
-* RF-010: Búsqueda de libros por: título, autor, editorial, género, ISBN
+* RF16: Actualizar información de un libro
 
-* RF-011: Filtrado por disponibilidad de libros
+* RF17: Eliminar un libro (solo si no tiene préstamos activos)
+
+* RF18: Buscar libros por título, autor o editorial
+
+* RF19: Filtrar libros por género o año de publicación
 
 4. Gestión de Miembros
-* RF-012: Crear, leer, actualizar y eliminar miembros
+* RF20: Registrar nuevo miembro (nombre, email, teléfono, dirección, fecha de registro)
 
-* RF-013: Cada miembro debe tener: id, nombre, email, teléfono, dirección, fecha de registro
+* RF21: Listar todos los miembros
 
-* RF-014: Búsqueda de miembros por nombre o email
+* RF22: Ver detalles de un miembro específico
+
+* RF23: Actualizar información de un miembro
+
+* RF24: Desactivar/eliminar miembro (solo si no tiene préstamos activos)
+
+* RF25: Buscar miembros por nombre o email
+
 
 5. Gestión de Préstamos
-* RF-015: Crear, leer, actualizar préstamos (no eliminar por historial)
+* RF26: Registrar nuevo préstamo (libro, miembro, fecha de préstamo, fecha de devolución esperada)
 
-* RF-016: Cada préstamo debe tener: id, libro, miembro, fecha de préstamo, fecha de devolución estimada, fecha de devolución real, estado (activo, devuelto, atrasado)
+* RF27: Listar todos los préstamos (activos, históricos)
 
-* RF-017: Al crear un préstamo, disminuir la cantidad disponible del libro
+* RF28: Ver detalles de un préstamo específico
 
-* RF-018: Al devolver un libro, aumentar la cantidad disponible
+* RF29: Registrar devolución de libro (actualizar fecha de devolución real)
 
-* RF-019: Validación de que el libro esté disponible antes del préstamo
+* RF30: Extender plazo de préstamo
 
-* RF-020: Búsqueda de préstamos por: miembro, libro, estado, fechas
+* RF31: Listar préstamos activos de un miembro
 
-* RF-021: Endpoint para registrar devolución de libro
+* RF32: Listar préstamos por rango de fechas
 
-6. Endpoints Específicos
-* RF-022: Endpoint para consultar libros disponibles
+* RF33: Ver historial de préstamos de un libro
 
-* RF-023: Endpoint para consultar préstamos activos de un miembro
-
-* RF-024: Endpoint para consultar préstamos atrasados
 
 # Requerimientos No Funcionales
-1. Seguridad
-* RNF-001: Autenticación por token (JWT) para operaciones sensibles
+1. Rendimiento
+* NF01: Las operaciones CRUD básicas deben responder en menos de 200ms
 
-* RNF-002: Validación de datos de entrada en todos los endpoints
+* NF02: Las búsquedas y filtros deben responder en menos de 500ms
 
-* RNF-003: Protección contra inyecciones SQL
+* NF03: La API debe soportar al menos 50 solicitudes concurrentes en entorno local
 
-2. Rendimiento
-* RNF-004: Tiempo de respuesta inferior a 200ms para consultas simples
 
-* RNF-005: Paginación en endpoints que devuelvan listas largas
+2. Seguridad
+* NF04: Implementar autenticación por tokens (JWT) para todas las operaciones
 
-* RNF-006: Uso de select_related y prefetch_related para optimizar consultas
+* NF05: Validar todos los datos de entrada para prevenir inyecciones SQL
+
+* NF06: Implementar permisos basados en roles (administrador, bibliotecario, miembro)
 
 3. Base de Datos
-* RNF-007: Uso de PostgreSQL como motor de base de datos
+* NF13: Usar PostgreSQL como motor de base de datos
 
-* RNF-008: Configuración de conexión con PgAdmin 4 para administración
+* NF14: Implementar migraciones de base de datos con Django Migrations
 
-* RNF-009: Índices en campos de búsqueda frecuente
+* NF15: Configurar relaciones y constraints apropiadas en la base de datos
+
+* NF16: Implementar índices para campos de búsqueda frecuentes
+
+4. Configuracion
+* NF17: Configuración para entorno local con variables de entorno
+
+* NF18: Scripts para poblar la base de datos con datos de prueba
+
+* NF19: Configuración de CORS para desarrollo local
 
 
-
-
-
-# Urls para testeo 
-Una vez ejecutado el servidor (por defecto en http://127.0.0.1:8000/):
-
-Autores CRUD:
-GET http://127.0.0.1:8000/api/autores/ - Listar autores
-
-POST http://127.0.0.1:8000/api/autores/ - Crear autor
-
-GET http://127.0.0.1:8000/api/autores/1/ - Obtener autor específico
-
-PUT http://127.0.0.1:8000/api/autores/1/ - Actualizar autor
-
-DELETE http://127.0.0.1:8000/api/autores/1/ - Eliminar autor
-
-Filtros:
-http://127.0.0.1:8000/api/autores/?search=nombre - Búsqueda
-
-http://127.0.0.1:8000/api/autores/?nacionalidad=España - Filtrar por nacionalidad
-
-http://127.0.0.1:8000/api/autores/?ordering=nombre - Ordenar
-
-Documentación:
-http://127.0.0.1:8000/swagger/ - Swagger UI
-
-http://127.0.0.1:8000/redoc/ - ReDoc
-
-http://127.0.0.1:8000/admin/ - Admin Django (si creaste superusuario)
