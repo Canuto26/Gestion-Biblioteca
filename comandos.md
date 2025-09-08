@@ -9,9 +9,6 @@ venv\Scripts\activate
 ## Instalar requerimientos dependencias
 pip install -r requirements.txt
 
-## Para desarrollo
-pip install -r requirements/dev.txt
-
 
 
 # Instalacion de dependencias
@@ -31,14 +28,6 @@ pip install psycopg2-binary
 ## Sistema de filtrado
 pip install django-filter
 
-## Documentación automática (Swagger)  _PENDIENTE_
-pip install drf-yasg
-
-## Manejo de imágenes
-pip install Pillow
-
-## Variables de entorno _PENDIENTE_
-pip install python-decouple
 
 
 # Comandos para probar las aplicacion
