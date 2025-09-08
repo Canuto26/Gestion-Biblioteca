@@ -39,3 +39,14 @@ pip install Pillow
 
 ## Variables de entorno _PENDIENTE_
 pip install python-decouple
+
+
+# Comandos para probar las aplicacion
+
+## Autores
+### Crear y aplicar migraciones
+python manage.py makemigrations autores
+python manage.py migrate
+
+### Ejecutar el servidor
+python manage.py runserver
