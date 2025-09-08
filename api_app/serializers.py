@@ -38,7 +38,6 @@ class LibroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Libro
         fields = '__all__'
-        read_only_fields = ('cantidad_disponible',)
     
     def validate_isbn(self, value):
         """Valida que el ISBN tenga al menos 10 caracteres"""
@@ -50,6 +49,12 @@ class LibroSerializer(serializers.ModelSerializer):
         """Valida que el año de publicación sea razonable"""
         if value and (value < 1000 or value > 2100):
             raise serializers.ValidationError("El año de publicación debe ser válido")
+        return value
+    
+    def validate_cantidad_disponible(self, value):
+        """Valida que la cantidad disponible no sea negativa"""
+        if value < 0:
+            raise serializers.ValidationError("La cantidad disponible no puede ser negativa")
         return value
 
 class MiembroSerializer(serializers.ModelSerializer):

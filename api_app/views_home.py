@@ -40,3 +40,4 @@ def home_view(request):
     }
     
     return JsonResponse(api_info, json_dumps_params={'indent': 2, 'ensure_ascii': False})
+

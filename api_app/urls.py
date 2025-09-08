@@ -28,3 +28,4 @@ urlpatterns = [
     path('prestamos/miembro/<int:miembro_id>/', views.prestamos_miembro, name='prestamos-miembro'),
     path('prestamos/miembro/<int:miembro_id>/activos/', views.prestamos_activos_miembro, name='prestamos-activos-miembro'),
 ]
+
