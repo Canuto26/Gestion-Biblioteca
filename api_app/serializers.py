@@ -135,7 +135,6 @@ class PrestamoDevolucionSerializer(serializers.Serializer):
         
         return instance
     
-# serializers.py (continuación)
 class LibroSearchSerializer(serializers.Serializer):
     """Serializer para parámetros de búsqueda de libros"""
     titulo = serializers.CharField(required=False)

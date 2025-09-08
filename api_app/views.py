@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
 # Para autores 
-# views.py
+
 from rest_framework import generics, filters, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -56,7 +55,7 @@ def autor_search(request):
 
 
 # Para editoriales
-# views.py (continuación)
+
 class EditorialListCreateView(generics.ListCreateAPIView):
     queryset = Editorial.objects.all().order_by('nombre')
     serializer_class = EditorialSerializer
@@ -79,7 +78,6 @@ class EditorialDetailView(generics.RetrieveUpdateDestroyAPIView):
     
     
 # Para libros
-# views.py (continuación)
 class LibroListCreateView(generics.ListCreateAPIView):
     queryset = Libro.objects.all().select_related('autor', 'editorial').order_by('titulo')
     serializer_class = LibroSerializer
@@ -129,7 +127,6 @@ def libro_search(request):
 
 
 # Para miembros
-# views.py (continuación)
 class MiembroListCreateView(generics.ListCreateAPIView):
     queryset = Miembro.objects.all().order_by('nombre')
     serializer_class = MiembroSerializer
@@ -152,7 +149,6 @@ class MiembroDetailView(generics.RetrieveUpdateDestroyAPIView):
     
 
 # Para préstamos
-# views.py (continuación)
 class PrestamoListCreateView(generics.ListCreateAPIView):
     queryset = Prestamo.objects.all().select_related('libro', 'miembro').order_by('-fecha_prestamo')
     serializer_class = PrestamoSerializer

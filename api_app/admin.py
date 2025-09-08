@@ -1,7 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
-
 # gestion_biblioteca/admin.py
 from django.contrib import admin
 from .models import Autor, Editorial, Libro, Miembro, Prestamo

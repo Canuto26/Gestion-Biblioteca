@@ -39,3 +39,6 @@ python manage.py migrate
 
 ### Ejecutar el servidor
 python manage.py runserver
+
+### Crear super usuario
+python manage.py createsuperuser
